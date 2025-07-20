@@ -1,0 +1,12 @@
+.login{
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    border: 10px;
+}
+
+h2{
+    background-color: chartreuse;
+    right: 40px;
+    left: 40px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito - A.L.P Tecnology</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <h1>🛒 Carrito de compras</h1>
+
+
+  <div class="wrapper">
+    <aside>
+      <header>
+        <h1>A.L.P Tecnology</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><i class="bi bi-arrow-return-left"></i><a class="button-volver" href="index.html">Seguir comprando</a>
+          </li>
+          <li><i class="bi bi-cart-fill"></i><a class="button-carrito" href="carrito.html">Carrito <span
+                class="numerico">0</span></a></li>
+        </ul>
+      </nav>
+      <footer>
+        <p class="text-footer">&copy; 2025 A.L.P Tecnology. Axel pirusel.</p>
+
+      </footer>
+
+    </aside>
+    <main>
+      <h2 class="titulo-principal">Carrito</h2>
+      <div class="contenedor-carrito">
+        <p class="carrito-vacio">Tu carrito esta vacio<i class="bi bi-emoji-frown"></i></p>
+        <div class="carrito-productos">
+          <div class="carrito-producto">
+            <img src="../imagenes/s24-ultra-black-10a6f31ec5abe2356717102614310530-1024-1024.png" alt="">
+          </div>
+          <div class="carrito-producto-titulo">
+            <small>Titulo</small>
+            <h3>Producto 1</h3>
+          </div>
+          <div class="carrito-producto-cantidad">
+            <small>Cantidad</small>
+            <p>1</p>
+          </div>
+          <div class="carrito-producto-precio">
+            <small>Precio</small>
+            <p>$1.230.500</p>
+          </div>
+          <div class="carrito-producto-subtotal">
+            <small>Subtotal</small>
+            <p>$1.230.500</p>
+          </div>
+          <button class="carrito-producto-eliminar"><i class="bi bi-trash3"></i></button>
+
+          <div class="carrito-producto">
+            <img src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
+          </div>
+          <div class="carrito-producto-titulo">
+            <small>Titulo</small>
+            <h3>Producto 2</h3>
+          </div>
+          <div class="carrito-producto-cantidad">
+            <small>Cantidad</small>
+            <p>1</p>
+          </div>
+          <div class="carrito-producto-precio">
+            <small>Precio</small>
+            <p>$630.500</p>
+          </div>
+          <div class="carrito-producto-subtotal">
+            <small>Subtotal</small>
+            <p>$630.500</p>
+          </div>
+          <button class="carrito-producto-eliminar"><i class="bi bi-trash3"></i></button>
+        </div>
+        <div class="carrito-acciones">
+          <div class="carrito-acciones-izquierda">
+            <button class="carrito-acciones-vaciar">Vaciar carrito</button>
+
+          </div>
+          <div class="carrito-acciones-derecha">
+            <div class="carrito-acciones-total">
+              <p>Total:</p>
+              <p id="total">$2000</p>
+              <button class="carrito-acciones-comprar">Comprar ahora</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <div id="carrito"></div>
+
+  <h2>Datos de Envío</h2>
+  <form id="form-envio">
+    <input type="text" name="nombre" placeholder="Nombre completo" required><br>
+    <input type="text" name="direccion" placeholder="Dirección" required><br>
+    <input type="text" name="telefono" placeholder="Teléfono" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <button type="submit">Finalizar compra</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
