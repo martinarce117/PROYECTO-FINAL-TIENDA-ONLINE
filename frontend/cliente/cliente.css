@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
 h1, h2, h3, h4, h5, h6, p, a, input,textarea,ul{
   margin: 0;
   padding: 0;
@@ -5,6 +12,7 @@ h1, h2, h3, h4, h5, h6, p, a, input,textarea,ul{
 ul{
   list-style-type: none;
 }
+
 a{
   text-decoration: none;
 }
@@ -16,6 +24,7 @@ a{
 
 aside{
   padding: 2rem;
+  padding-right: 0;
   color: white;
   position: sticky;
   top: 0;
@@ -28,6 +37,64 @@ aside{
   font-weight: 400;
   font-size: 1.3rem;
 }
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.button-menu{
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 2rem;
+  font-weight: 600;
+  font-size: .85rem;
+  
+}
+.button-menu.active{
+  background-color: white;
+  color: #00e58d;
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  position: relative;
+
+
+}
+.button-menu.active::before{
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 2rem;
+  bottom: 100%;
+  right: 0;
+  background-color: transparent;
+  border-bottom-right-radius: .5rem;
+  box-shadow: 0 1rem 0 white;
+
+}
+
+.button-menu.active::after{
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 2rem;
+  top: 100%;
+  right: 0;
+  background-color: transparent;
+  border-top-right-radius: .5rem;
+  box-shadow: 0 -1rem 0 white;
+
+}
+
+.button-carrito{
+  margin-top: 3rem;
+}
+
 .text-footer{
   color: white;
   font-size: .85rem;
@@ -40,7 +107,7 @@ main{
   padding: 3rem;
 }
 .titulo-principal{
-  color: #00e58d;
+  color: black;
   margin-bottom: 1rem;
 }
 .contenedor-producto{
@@ -54,7 +121,7 @@ main{
 
 }
 .producto-detalles{
-  background-color: #00e58d;
+  background-color: black;
   color: white;
   padding: .5rem;
   border-radius: 1rem;
@@ -75,13 +142,43 @@ main{
   border-radius: 2rem;
   cursor: pointer;
   border: 1px solid white;
+  transition: background-color .2s, color .2s;
 }
 .producto-agregar:hover{
-  background-color: #00e58d;
+  background-color: black;
   color: white;
 }
 
 
+/**Carrito**/
+
+.carrito-vacio{
+  color: #00e58d;
+  display: none;
+}
+
+.carrito-productos{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carrito-producto{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(190, 190, 190);
+  color: black;
+  padding: .5rem;
+  border-radius: 1rem;
+  align-items: center;
+
+
+}
+
+.carrito-producto-imagen{
+  width: 4rem;
+  border-radius: 1rem;
+}
 
 
 
