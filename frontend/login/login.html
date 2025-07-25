@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
- 
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login Dueño</title>
-  
+  <link rel="shortcut icon" href="../imagenes/logo.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
 
- <form id="form-login">
+  <!-- Fondo visual completo con logo -->
+  <div class="background-logo">
+    <h1 class="brand-alp">A.L.P</h1>
+
+    <div class="pixel-grid">
+        <div class="pixel" style="top: 0px; left: -25px;"></div>
+  <div class="pixel" style="top: 15px; left: -20px;"></div>
+  <div class="pixel" style="top: 30px; left: -22px;"></div>
+  <div class="pixel" style="top: 45px; left: -18px;"></div>
+  <div class="pixel" style="top: 60px; left: -30px;"></div>
+  <div class="pixel" style="top: 75px; left: -26px;"></div>
+  <div class="pixel" style="top: 90px; left: -19px;"></div>
+  <div class="pixel" style="top: 105px; left: -23px;"></div>
+  <div class="pixel" style="top: 120px; left: -28px;"></div>
+  <div class="pixel" style="top: 135px; left: -21px;"></div>
+  <div class="pixel" style="top: 150px; left: -24px;"></div>
+  <div class="pixel" style="top: 165px; left: -17px;"></div>
+  <div class="pixel" style="top: 180px; left: -29px;"></div>
+  <div class="pixel" style="top: 195px; left: -22px;"></div>
+  <div class="pixel" style="top: 210px; left: -20px;"></div>
+  <div class="pixel" style="top: 225px; left: -26px;"></div>
+  <div class="pixel" style="top: 240px; left: -18px;"></div>
+
+    </div>
+
+    <div class="phone-frame">
+      <div class="screen"></div>
+      <div class="button"></div>
+    </div>
+
+    <h2 class="brand-tech">TECHNOLOGY</h2>
+  </div>
+
+  <!-- Formulario de login centrado en pantalla -->
+  <form id="form-login" class="login-form">
     <h2>Login Dueño</h2>
     <input type="text" id="username" placeholder="Usuario" required>
     <input type="password" id="password" placeholder="Contraseña" required>
     <button type="submit">Entrar</button>
     <div class="mensaje" id="mensaje"></div>
   </form>
- 
-<script src="login.js"></script>
+
+  <script src="login.js"></script>
 </body>
+
 </html>

@@ -16,10 +16,18 @@ ul{
 a{
   text-decoration: none;
 }
+li{
+  align-items: center;
+  gap: 0.5rem; /* espacio entre ícono y botón */
+}
+li i {
+  color: white; /* o #00e58d si preferís */
+  font-size: 1.2rem;
+}
 .wrapper{
   display: grid;
   grid-template-columns: 1fr 4fr;
-   background: linear-gradient(to right, #00b2ff, #00e58d);
+   background: linear-gradient(to right, #00b2ff 0%, #00e58d 30%);
 }
 
 aside{
@@ -62,8 +70,6 @@ aside{
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   position: relative;
-
-
 }
 .button-menu.active::before{
   content: "";
@@ -94,6 +100,15 @@ aside{
 .button-carrito{
   margin-top: 3rem;
 }
+
+.numerico{
+  background-color: white;
+  color: black;
+  padding: .15rem .25rem;
+  border-radius: .25rem;
+
+}
+
 
 .text-footer{
   color: white;
@@ -152,9 +167,15 @@ main{
 
 /**Carrito**/
 
-.carrito-vacio{
+.contenedor-carrito{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.carrito-vacio,
+.carrito-comprado{
   color: #00e58d;
-  display: none;
 }
 
 .carrito-productos{
@@ -169,6 +190,7 @@ main{
   background-color: rgb(190, 190, 190);
   color: black;
   padding: .5rem;
+  padding-right: 1.5rem;
   border-radius: 1rem;
   align-items: center;
 
@@ -180,36 +202,64 @@ main{
   border-radius: 1rem;
 }
 
+.carrito-producto small{
+  font-size: .75rem;
+
+}
+
+.carrito-producto-eliminar{
+  border: 0;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
 
 
+.carrito-acciones{
+  display: flex;
+  justify-content: space-between;
+}
 
+.carrito-acciones-vaciar{
+  border: 0;
+  background-color: rgb(215, 206, 206);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
+.carrito-acciones-derecha{
+  display: flex;
 
+}
 
+.carrito-acciones-total{
+  display: flex;
+  background-color: rgb(215, 206, 206);
+  padding: 1rem;
+  color: black;
+  text-transform: uppercase;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  gap: 1rem;
+}
 
+.carrito-acciones-comprar{
+  border: 0;
+  background-color: #00e58d;
+  padding: 1rem;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.disabled{
+  display: none;
+}
 
 
 
