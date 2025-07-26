@@ -19,7 +19,7 @@
       const formData = new FormData(this);
 
       try {
-        const res = await fetch('http://localhost:3000/api/productos', {
+        const res = await fetch('http://localhost:3000/api/producto', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}` // No poner Content-Type, fetch lo maneja con FormData

@@ -18,7 +18,7 @@
           mensaje.style.color = 'green';
           mensaje.textContent = data.mensaje;
           localStorage.setItem('token', data.token); // Guardamos el token
-          window.location.href = 'subir_producto.html'; // Redirige al panel para subir productos
+          window.location.href = '../producto/subir_producto.html'; // Redirige al panel para subir productos
         } else {
           mensaje.style.color = 'red';
           mensaje.textContent = data.error || 'Error al iniciar sesión';

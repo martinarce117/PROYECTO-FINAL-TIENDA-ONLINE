@@ -27,7 +27,7 @@ li i {
 .wrapper{
   display: grid;
   grid-template-columns: 1fr 4fr;
-   background: linear-gradient(to right, #00b2ff 0%, #00e58d 30%);
+  background: linear-gradient(to right, #00b2ff 0%, #00e58d 30%);
 }
 
 aside{
