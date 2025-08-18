@@ -9,21 +9,19 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Middleware
 app.use(cors());
+app.use(express.urlencoded({ extended: true })); // Para procesar multipart/form-data sin multer
 app.use(express.json());
-app.use('/uploads', express.static('uploads'));
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-//  Configuración de multer para subir imágenes
+// Configuración de multer para subir imágenes
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'uploads/'),
   filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
 });
 const upload = multer({ storage });
 
-//  Conexión a MySQL
+// Conexión a MySQL
 const db = mysql.createConnection({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
@@ -39,12 +37,12 @@ db.connect((err) => {
   console.log('✅ Conectado a la base de datos MySQL');
 });
 
-//  Ruta raíz
+// Ruta raíz
 app.get('/', (req, res) => {
   res.send('Servidor funcionando: A.L.P Technology');
 });
 
-//  Registro de dueño (solo uno)
+// Registro de dueño (solo uno)
 app.post('/api/registro', async (req, res) => {
   const { username, password } = req.body;
 
@@ -63,7 +61,7 @@ app.post('/api/registro', async (req, res) => {
   });
 });
 
-//  Login del dueño
+// Login del dueño
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -79,7 +77,7 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-//  Middleware de autenticación
+// Middleware de autenticación
 function verificarToken(req, res, next) {
   const auth = req.headers.authorization;
   const token = auth && auth.split(' ')[1];
@@ -92,65 +90,94 @@ function verificarToken(req, res, next) {
   });
 }
 
-//  Subir producto
-app.post('/api/productos', verificarToken, upload.single('imagen'), (req, res) => {
-  const { nombre, descripcion, precio, stock, imagen_url } = req.body;
- // const imagen = req.file ? `/uploads/${req.file.filename}` : null;
-let imagen = null;
-if(req.file){
-  imagen =  `/uploads/${req.file.filename}`;
-}else if (imagen_url){
-  imagen = imagen_url;
-}
-  const sql = 'INSERT INTO productos (name, description, price, stock, imagen) VALUES (?, ?, ?, ?, ?)';
-  db.query(sql, [nombre, descripcion, precio, stock, imagen], (err) => {
-    if (err) return res.status(500).json({ error: 'Error al subir producto' });
-    res.json({ mensaje: 'Producto agregado correctamente' });
-  });
-});
+// Ruta para guardar producto (con token y sin imagen por ahora)
+app.post("/api/productos", verificarToken, upload.none(), (req, res) => {
+  const { nombre, imagen_url, descripcion, precio, stock, estado } = req.body;
 
-//  Modificar producto
-app.put('/api/productos/:id', verificarToken, upload.single('imagen'), (req, res) => {
-  const { nombre, descripcion, precio, stock } = req.body;
-  const { id } = req.params;
-  const imagen = req.file ? `/uploads/${req.file.filename}` : null;
-
-  let sql = 'UPDATE productos SET name = ?, description = ?, price = ?, stock = ?';
-  const params = [nombre, descripcion, precio, stock];
-
-  if (imagen) {
-    sql += ', imagen = ?';
-    params.push(imagen);
+   const estadoValido = ['nuevo', 'usado', 'accesorio'];
+  if (!estadoValido.includes(estado)) {
+    return res.status(400).json({ error: 'Estado inválido' });
   }
 
-  sql += ' WHERE id = ?';
-  params.push(id);
+  if (!nombre || !descripcion || !precio || !stock || !estado) {
+    return res.status(400).json({ mensaje: "Faltan datos requeridos" });
+  }
 
-  db.query(sql, params, (err) => {
-    if (err) return res.status(500).json({ error: 'Error al editar producto' });
-    res.json({ mensaje: 'Producto actualizado correctamente' });
+  const sql = "INSERT INTO productos (nombre, descripcion, precio, imagen_url, estado, stock) VALUES (?, ?, ?, ?, ?, ?)";
+  const valores = [nombre, descripcion, precio, imagen_url || null, estado, stock];
+
+  db.query(sql, valores, (err, resultado) => {
+    if (err) {
+      console.error("Error al insertar:", err);
+      return res.status(500).json({ mensaje: "Error al guardar el producto" });
+    }
+
+    res.status(200).json({ mensaje: "Producto guardado correctamente" });
   });
 });
 
-//  Eliminar producto
-app.delete('/api/productos/:id', verificarToken, (req, res) => {
+
+// ✅ Obtener un producto por su ID (para editar)
+app.get('/api/productos/:id', verificarToken, (req, res) => {
   const { id } = req.params;
 
-  db.query('DELETE FROM productos WHERE id = ?', [id], (err) => {
-    if (err) return res.status(500).json({ error: 'Error al eliminar producto' });
-    res.json({ mensaje: 'Producto eliminado correctamente' });
+  db.query('SELECT * FROM productos WHERE id = ?', [id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error al obtener el producto' });
+    if (result.length === 0) return res.status(404).json({ error: 'Producto no encontrado' });
+
+    res.json(result[0]);
   });
 });
 
-//  Ver productos (público)
+
+// ✅ Modificar producto (ahora también con stock y protegido con token)
+app.put('/api/productos/:id', verificarToken, (req, res) => {
+  const { id } = req.params;
+  const { nombre, precio, descripcion, stock } = req.body;
+
+  if (!nombre || !descripcion || !precio || !stock) {
+    return res.status(400).json({ error: 'Faltan campos requeridos' });
+  }
+
+  const sql = 'UPDATE productos SET nombre = ?, precio = ?, descripcion = ?, stock = ? WHERE id = ?';
+  db.query(sql, [nombre, precio, descripcion, stock, id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error al actualizar' });
+    res.sendStatus(200);
+  });
+});
+
+// Eliminar producto
+app.delete('/api/productos/:id', (req, res) => {
+  const { id } = req.params;
+  db.query('DELETE FROM productos WHERE id = ?', [id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error al eliminar' });
+    res.sendStatus(200);
+  });
+});
+
+// Marcar como vendido
+app.patch('/api/productos/:id/vendido', (req, res) => {
+  const { id } = req.params;
+  const sql = 'UPDATE productos SET estado = ? WHERE id = ?';
+  db.query(sql, ['Vendido', id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error al marcar como vendido' });
+    res.sendStatus(200);
+  });
+});
+
+
+
+
 app.get('/api/productos', (req, res) => {
-  db.query('SELECT * FROM productos', (err, results) => {
-    if (err) return res.status(500).send(err);
-    res.json(results);
+  const sql = 'SELECT * FROM productos ORDER BY id DESC';
+  db.query(sql, (err, result) => {
+    if (err) return res.status(500).json({ error: 'Error al obtener productos' });
+    res.json(result);
   });
 });
 
-//  Guardar pedido
+
+// Guardar pedido
 app.post('/api/pedidos', (req, res) => {
   const { nombre, direccion, telefono, email, total, items } = req.body;
 
@@ -169,7 +196,7 @@ app.post('/api/pedidos', (req, res) => {
   });
 });
 
-// 🚀 Iniciar servidor
+// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });

@@ -3,25 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <title>Subir Producto</title>
+  <link rel="shortcut icon" href="../imagenes/logo.jpeg" type="image/x-icon">
   <link rel="shortcut icon" href="../frontend/imagenes/logo.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="subir_producto.css">
 </head>
 <body>
   <header>
-    <img class="img" src="../imagenes/WhatsApp Image 2025-07-21 at 23.55.08.jpeg" alt="">
+    <img class="img-logo" class="img" src="../imagenes/logo.jpeg" alt="">
     <div class="logo">A.L.P Technology</div>
-    <div class="nav-buttons">
-      <button onclick="filtrar('nuevo')">Nuevo</button>
-      <button onclick="filtrar('usado')">Usado</button>
-      <button onclick="window.location.href='/producto/subir_producto.html'">Subir Producto</button>
-      <button onclick="window.location.href='/producto/eliminar.html'">Eliminar Productos</button>
+    <div class="botones">
+     <button id="btn-subir">Subir Productos</button> 
+     <div id="opciones-subir" class="opciones oculto">
+     <button id="nuevo">Nuevo</button>
+     <button id="usado">Usado</button>
+     <button id="accesorio">Accesorios</button>
+     </div>
+  <button id="btn-eliminar">Eliminar Producto</button>
+     <div id="opciones-eliminar" class="opciones oculto">
+      <button>Nuevo</button>
+      <button>Usado</button>
+     </div>
     </div>
   </header>
 
-
-  <div class="container">
+   <section id="formulario-contenedor" class="oculto">
+    <h2 id="titulo-formulario"></h2>
     <form id="form-producto" enctype="multipart/form-data">
-      <h2>Subir Producto</h2>
+      <input type="text" name="nombre" placeholder="Nombre del Producto" required>
+      <input type="text" name="imagen_url" placeholder="URL de la imagen">
+      <textarea name="descripcion" placeholder="Descripción del Producto" required></textarea>
+      <input type="number" name="precio" placeholder="Precio" required>
+      <input type="number" name="stock" placeholder="Stock" required>
+        <input type="hidden" name="estado" id="estado-producto" required>
+        
+
+      <button type="submit">Subir Producto</button>
+      <p id="mensaje" class="mensaje-feedback oculto"></p>
+    </form>
+
+  </section>
+
+<div id="formulario-editar" class="oculto">
+  <form id="form-editar-producto">
+  <input type="hidden" id="edit-id">
+  <input type="text" id="edit-nombre" placeholder="Nombre">
+  <textarea id="edit-descripcion" placeholder="Descripción"></textarea>
+  <input type="number" id="edit-precio" placeholder="Precio">
+  <input type="number" id="edit-stock" placeholder="Stock">
+  <button type="submit">Guardar cambios</button>
+  <button type="button" onclick="document.getElementById('formulario-editar').classList.add('oculto')">Cancelar</button>
+
+</form>
+<p id="mensaje-edicion" class="mensaje-feedback oculto"></p>
+
+</div>
+
+  
+      <h2>Productos Cargados</h2>
+<div id="lista-productos-dueño"></div>
+
+
+
+
+  <!--<div id="formulario-contenedor" class="oculto">
+    <form id="form-producto" enctype="multipart/form-data">
+      <h2 id="titulo-formulario">Subir Producto</h2>
       <input type="text" name="nombre" placeholder="Nombre del Producto" required>
       <input type="text" name="imagen_url" placeholder="URL de la imagen">
       <textarea name="descripcion" placeholder="Descripción del Producto" required></textarea>
@@ -30,7 +76,7 @@
       <button type="submit">Subir Producto</button>
       <div class="mensaje" id="mensaje"></div>
     </form>
-  </div>
+  </div>-->
 
   <script src="subir_producto.js"></script>
 </body>

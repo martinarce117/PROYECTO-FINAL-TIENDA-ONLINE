@@ -17,183 +17,124 @@
         </header>
         <nav>
           <ul class="menu">
-          <li><i class="bi bi-bag"></i><button class="button-menu button-categoria active">Todos los Productos</button></li>
-          <li><i class="bi bi-phone"></i><button class="button-menu button-categoria">Nuevos</button></li>
-          <li><i class="bi bi-phone"></i><button class="button-menu button-categoria">Usados</button></li>
-          <li><i class="bi bi-tools"></i><button class="button-menu button-categoria">servicio Tecnico</button></li>
+          <li></i><button class="button-menu button-categoria active" data-categoria="todos">Todos los Productos</button></li>
+          <li></i><button class="button-menu button-categoria" data-categoria="nuevo">Nuevos</button></li>
+          <li></i><button class="button-menu button-categoria" data-categoria="usado">Usados</button></li>
+          <li></i><button class="button-menu button-categoria" data-categoria="accesorio">Accesorio</button></li>
+          <li></i><button class="button-menu button-categoria" data-categoria="sobre">Sobre nosotros</button></li>
           <li><i class="bi bi-cart-fill"></i><a class="button-carrito button-categoria" href="carrito.html">Carrito <span class="numerico">0</span></a></li>
           </ul>
         </nav>
-        <footer>
-          <p class="text-footer">&copy; 2025 A.L.P Tecnology. Axel pirusel.</p>
-
-        </footer>
+        <p class="text-footer">&copy; 2025 A.L.P Tecnology. Axel pirusel.</p>
+       
 
       </aside>
       <main>
-        <h2 class="titulo-principal">Todos los Productos</h2>
+        <h2 class="titulo-principal" id="titulo-principal">Todos los Productos</h2>
+        
+<div id="mensaje-carrito" class="mensaje oculto"></div>
 
-        <div class="contenedor-producto">
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-           <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
+<div id="catalogo-productos" class="contenedor-producto"></div>
+        <div class="contenedor-producto"></div>
 
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
+      <section id="seccion-sobre-nosotros" class="oculto">
+  <div class="sobre-nosotros-card">
+    <h2 class="titulo-seccion">Sobre Nosotros</h2>
+    <p class="intro-texto">
+      En <strong>A.L.P Technology</strong> nos especializamos en la venta de dispositivos móviles y tecnología, 
+      ofreciendo productos de alta calidad y un servicio de atención al cliente que se distingue por su cercanía y compromiso.
+    </p>
+    <p>
+      Nuestra trayectoria comenzó en 2019, dedicándonos a la comercialización de teléfonos celulares y accesorios. 
+      El crecimiento sostenido y la confianza de nuestros clientes nos permitieron, en febrero de 2021, inaugurar nuestro local comercial, 
+      incorporando a nuestra propuesta un servicio técnico especializado.
+    </p>
+    <p>
+      En cada venta y reparación, nuestro objetivo es proporcionar soluciones eficientes, precios competitivos y una experiencia de compra segura, 
+      asegurando que cada cliente se lleve no solo un producto o servicio, sino también la tranquilidad de haber elegido la mejor opción.
+    </p>
 
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-           <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
+    <hr class="divider">
 
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        
-
-        
-          <div class="productos">
-            <img class="producto-imagen" src="../imagenes/iphone-11-black1-fa59f1f1236804363417073315584424-640-0-5250ed4036fa6bdc7117265105962413-1024-1024.png" alt="">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Iphone 11</h3>
-              <p class="producto-precio">$700.000</p>
-              <button class="producto-agregar">Agregar</button>
-            </div>
-          </div>
-        </div>
-
-
-
-      </main>
+    <h3>Nuestros Servicios</h3>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <h4>Venta de productos</h4>
+        <ul>
+          <li>Celulares nuevos de marcas líderes (Samsung, Motorola, Xiaomi, iPhone, entre otras)</li>
+          <li>Celulares usados seleccionados y garantizados</li>
+          <li>Accesorios de excelente calidad: cargadores, cables, fundas, protectores, auriculares, altavoces y más</li>
+        </ul>
+      </div>
+      <div class="servicio">
+        <h4>Servicio técnico</h4>
+        <ul>
+          <li>Reemplazo de pantallas y módulos</li>
+          <li>Cambio de baterías</li>
+          <li>Reparación de placa madre</li>
+          <li>Sustitución de puertos de carga</li>
+          <li>Actualización y reinstalación de software</li>
+          <li>Mantenimiento y reparaciones generales</li>
+        </ul>
+      </div>
     </div>
 
+    <hr class="divider">
+
+    <h3>Compromiso A.L.P Technology</h3>
+    <p>
+      Nos enfocamos en ofrecer una atención personalizada, asesorando de manera clara y honesta para garantizar que cada cliente encuentre la solución que necesita.
+      La combinación de profesionalismo, calidad y precios accesibles es lo que nos ha consolidado como una referencia en el sector tecnológico local.
+    </p>
+  </div>
+</section>
+
+
+
+      
+    </div>
+</main>
+ <footer class="footer-global">
+  <div class="footer-contenido">
+    <div class="footer-info">
+      <p class="text-footer">Dirección: HABEGGER 1167, Reconquista, Santa Fe</p>
+      <p class="text-footer">Email: axelpirusel@gmail.com</p>
+     
+   <div class="footer-redes">
+     <p class="text-footer">Seguinos en las redes sociales</p>
+     <div class="iconos-redes">
+  <a href="https://www.instagram.com/a.l.p_technology/?hl=es" target="_blank">
+    <i class="bi bi-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/p/ALP-Technology-100063537957232/?locale=tl_PH" target="_blank">
+    <i class="bi bi-facebook"></i>
+  </a>
+  <a class="whatsapp-float" href="https://wa.me/+5493482416055" target="_blank">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  </div>
+</div>
+    </div>
+    <div class="footer-mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3484.631695249371!2d-59.6534730256474!3d-29.146051890198127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944ebb1682511a29%3A0x66b4dd01fd2007b1!2sA.L.P%20TECHNOLOGY!5e0!3m2!1ses!2sar!4v1754058188801!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</footer>
 
 <script src="cliente.js"></script>
 </body>
+<div id="modal-producto" class="modal oculto">
+  <div class="modal-contenido">
+    <span id="modal-cerrar">&times;</span>
+    <h2 id="modal-nombre"></h2>
+    <img id="modal-imagen" src="" alt="">
+    <p id="modal-descripcion"></p>
+    <p id="modal-estado"></p>
+    <p id="modal-stock"></p>
+    <p id="modal-precio"></p>
+  </div>
+</div>
+
 </html> 
 
 
