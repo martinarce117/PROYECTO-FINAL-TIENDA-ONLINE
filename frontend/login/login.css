@@ -159,3 +159,101 @@ body {
     opacity: 0.8;
   }
 }
+
+
+/* RESPONSIVE */
+
+
+/* Móviles: hasta 600px */
+@media (max-width: 600px) {
+  .background-logo {
+    width: 120px;
+    height: 240px;
+    left: 5%;
+  }
+
+  .phone-frame {
+    height: 200px;
+  }
+
+  .screen {
+    width: 90%;
+    height: 60%;
+    margin: 15px auto 0;
+  }
+
+  .login-form {
+    width: 90%;
+    padding: 1.5rem;
+    gap: 0.8rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .brand-alp {
+    font-size: 1.5rem;
+  }
+
+  .brand-tech {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets: 601px a 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .background-logo {
+    width: 140px;
+    height: 280px;
+    left: 8%;
+  }
+
+  .phone-frame {
+    height: 230px;
+  }
+
+  .screen {
+    width: 85%;
+    height: 65%;
+  }
+
+  .login-form {
+    width: 80%;
+    padding: 2rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.7rem;
+  }
+
+  .brand-alp {
+    font-size: 1.8rem;
+  }
+
+  .brand-tech {
+    font-size: 1.1rem;
+  }
+}
+
+/* Computadoras: desde 1025px */
+@media (min-width: 1025px) {
+  .background-logo {
+    width: 160px;
+    height: 320px;
+    left: 10%;
+  }
+
+  .phone-frame {
+    height: 250px;
+  }
+
+  .screen {
+    width: 80%;
+    height: 70%;
+  }
+
+  .login-form {
+    width: 300px;
+  }
+}

@@ -21,7 +21,7 @@ li{
   gap: 0.5rem; /* espacio entre ícono y botón */
 }
 li i {
-  color: white; /* o #00e58d si preferís */
+  color: white; 
   font-size: 1.2rem;
 }
 .wrapper{
@@ -44,6 +44,10 @@ aside{
 .logo{
   font-weight: 400;
   font-size: 1.3rem;
+}
+.img{
+  width: 8rem;
+  height: auto;
 }
 
 .menu{
@@ -314,6 +318,7 @@ main{
 .carrito-acciones{
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .carrito-acciones-vaciar{
@@ -524,4 +529,64 @@ main{
 .whatsapp-float:hover {
   background-color: #20b857;
   transform: scale(1.1);
+}
+
+/* Sidebar y main responsivo */
+@media (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    position: relative;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .contenedor-producto {
+    grid-template-columns: 1fr 1fr; /* Dos productos por fila */
+    gap: 0.8rem;
+  }
+
+  .carrito-acciones {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .carrito-acciones-derecha {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .carrito-acciones-total {
+    border-radius: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .carrito-acciones-comprar {
+    width: 100%;
+    border-radius: 1rem;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .contenedor-producto {
+    grid-template-columns: 1fr; /* Un producto por fila */
+  }
+
+  .button-menu {
+    padding: 0.7rem;
+    font-size: 0.75rem;
+  }
 }
